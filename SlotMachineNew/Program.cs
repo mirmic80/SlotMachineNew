@@ -43,7 +43,7 @@ while (wantsToPlayGame)
         }
     //}
 
-    //Compares the numbers on the middle row :)
+    //Compares the numbers on the middle row 
     if (slotMachineLine[1][0] == slotMachineLine[1][1] && slotMachineLine[1][0] == slotMachineLine[1][2])
     {
         Console.WriteLine("Jackpot you are the winner");
