@@ -52,7 +52,6 @@ while (wantsToPlayGame)
     {
         Console.WriteLine("you lost");
     }
-    Test();
 
     Console.WriteLine("press E to exit the game or press another tap for a new game");
 
@@ -74,11 +73,6 @@ while (wantsToPlayGame)
             correctKey = true;
         }
     }
-}
-
-int Test()
-{
-    return 0;
 }
 
 
