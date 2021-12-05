@@ -79,13 +79,13 @@ slotMachineLine[2] = new int[3];
     
 //}
 
-int testLuckyNumber = NumberSlotmachine(slotMachineLine.Length, slotMachineLine.Count);
+int testLuckyNumber = NumberSlotmachine(slotMachineLine.GetUpperBound, slotMachineLine.Length);
 
 Console.WriteLine(testLuckyNumber);
 
-static int NumberSlotmachine(int dimension, int index, int lucky)
+static int NumberSlotmachine(int dimension, int index)
 {
-    int NumberSlotMachine = lucky;
+    
     for (int i = 0; i < dimension; i++)
     { 
         for (int j = 0; j < index; j++)
@@ -94,7 +94,8 @@ static int NumberSlotmachine(int dimension, int index, int lucky)
             int lucky = number.Next(0, 3);
 
         }
-    }   
+    }
+    int NumberSlotMachine = lucky;
     return NumberSlotMachine;
 }
 
