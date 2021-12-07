@@ -1,4 +1,4 @@
-﻿
+﻿using SlotMachineNew;
 
 //int luckNumberMin = 0;
 //int luckyNumberMax = 3;
@@ -78,6 +78,8 @@
 //    }
 
 //}
+UserInterface.DisplayWelcomeScreen();
+
 int width = 3;
 int length = 3;
 
@@ -85,6 +87,8 @@ int length = 3;
 int[][] randomNumbers = GenerateRandomNuumberGrid(width, length);
 int compareHorizontal = CompareGridNumberHorizontal(randomNumbers);
 int compareVertical = CompareGridNumberVertical(randomNumbers);
+
+UserInterface.DisplaySlotMachineState(randomNumbers);
 
 for (int i = 0; i < width; i++)
 {
@@ -148,15 +152,4 @@ static int[][] GenerateRandomNuumberGrid(int rawDimension, int lenghtDimension)
 }
 
 
-void DisplaySlotMachineState(int[][] state)
-{
-    for (int i = 0; i < state.Length; i++)
-    {
-        for (int j = 0; j < state.Length; j++)
-        {
-            Console.Write(state[i][j]);
-        }
-        Console.WriteLine();
-    }
-}
 
