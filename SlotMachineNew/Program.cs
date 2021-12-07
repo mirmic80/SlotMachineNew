@@ -78,15 +78,15 @@
 //    }
 
 //}
-int grit = 3;
+int grid = 3;
 int lenght = 3;
 
 
-int[][] randomNumbers = GenerateRandomNuumberGrid(grit, lenght);
+int[][] randomNumbers = GenerateRandomNuumberGrid(grid, lenght);
 int compareHorizontal = CompareGridNumberHorizontal(randomNumbers);
 int compareVertical = CompareGridNumberVertical(randomNumbers);
 
-for (int i = 0; i < grit; i++)
+for (int i = 0; i < grid; i++)
 {
     for (int j = 0; j < lenght; j++)
     {
