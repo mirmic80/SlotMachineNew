@@ -156,6 +156,7 @@ void DisplaySlotMachineState(int[][] state)
         {
             Console.Write(state[i][j]);
         }
+        Console.WriteLine();
     }
 }
 
