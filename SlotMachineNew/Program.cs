@@ -78,17 +78,17 @@
 //    }
 
 //}
-int grid = 3;
-int lenght = 3;
+int width = 3;
+int length = 3;
 
 
-int[][] randomNumbers = GenerateRandomNuumberGrid(grid, lenght);
+int[][] randomNumbers = GenerateRandomNuumberGrid(width, length);
 int compareHorizontal = CompareGridNumberHorizontal(randomNumbers);
 int compareVertical = CompareGridNumberVertical(randomNumbers);
 
-for (int i = 0; i < grid; i++)
+for (int i = 0; i < width; i++)
 {
-    for (int j = 0; j < lenght; j++)
+    for (int j = 0; j < length; j++)
     {
         Console.Write(randomNumbers[i][j]);
     }
