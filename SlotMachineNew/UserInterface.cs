@@ -18,5 +18,11 @@
         {
             Console.WriteLine("Press any key to start,(ESC) to exit/playout. You start with 30 Coins");
         }
+        public static void CoinsLeft(int coins)
+        {
+            Console.WriteLine("**************");
+            Console.WriteLine("Coins Left: " + coins);
+            Console.WriteLine("**************");
+        }
     }
 }

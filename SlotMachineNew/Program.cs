@@ -29,6 +29,7 @@ while (playing)
 
     Console.Clear();
 
+    UserInterface.CoinsLeft(playCoins);
     UserInterface.DisplaySlotMachineState(randomNumbers); //displays nice grid
 
     startCoins = playCoins;
