@@ -22,7 +22,7 @@ namespace SlotMachineNew
 
         public static void DisplayWelcomeScreen()
         {
-            Console.WriteLine("Welcome to the slotmachint");  
+            Console.WriteLine("Welcome to the slotmachint");
         }
 
     }

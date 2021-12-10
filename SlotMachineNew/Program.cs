@@ -13,26 +13,17 @@ int compareVertical = CompareGridNumberVertical(randomNumbers);
 
 UserInterface.DisplaySlotMachineState(randomNumbers); //displays nice grid
 
-for (int i = 0; i < width; i++)
-{
-    for (int j = 0; j < length; j++)
-    {
-        Console.Write(randomNumbers[i][j]);
-    }
-    Console.WriteLine();
-}
-
 static int CompareGridNumberHorizontal(int[][] gridNumber)
 {
     int comapreNumberHorizontal = 0;
-    for(int i = 0;i < gridNumber.Length;i++)
+    for (int i = 0; i < gridNumber.Length; i++)
     {
-        for (int j = 0;j < gridNumber[i].Length;j++)
+        for (int j = 0; j < gridNumber[i].Length; j++)
         {
             if (gridNumber[i][j] == gridNumber[i][0])
             {
                 comapreNumberHorizontal++;
-            }  
+            }
         }
     }
     return comapreNumberHorizontal;
@@ -73,6 +64,3 @@ static int[][] GenerateRandomNuumberGrid(int rawDimension, int lenghtDimension)
     }
     return raw;
 }
-
-
-
