@@ -24,6 +24,7 @@ while (playing)
     if (info.Key == ConsoleKey.Escape)
     {
         playing = false;
+        UserInterface.OutMeasage(playCoins);
         break;
     }
 

@@ -24,5 +24,11 @@
             Console.WriteLine("Coins Left: " + coins);
             Console.WriteLine("**************");
         }
+        public static void OutMeasage(int winCoins)
+        {
+            Console.Clear();
+            Console.WriteLine("PLAYOUT! You got " + winCoins + " Coins");
+
+        }
     }
 }
