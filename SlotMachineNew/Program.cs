@@ -7,6 +7,7 @@ int startCoins = 30;
 
 while (playing)
 {
+    
     int width = 3;
     int length = 3;
     int[][] randomNumbers = GenerateRandomNuumberGrid(width, length);
@@ -14,6 +15,11 @@ while (playing)
     int compareVertical = CompareGridNumberVertical(randomNumbers);
     int playCoins = CalculationCoins(compareHorizontal, compareVertical, startCoins);
 
+    if (playCoins <= 0)
+    {
+        UserInterface.OutMeasage(playCoins);
+        Console.WriteLine("You have lost");
+    }
 
     ConsoleKeyInfo info = Console.ReadKey(true);
     if (info.Key != ConsoleKey.Escape)
@@ -32,6 +38,7 @@ while (playing)
 
     UserInterface.CoinsLeft(playCoins);
     UserInterface.DisplaySlotMachineState(randomNumbers); //displays nice grid
+    UserInterface.MeasageWinOrLose(startCoins, playCoins);
 
     startCoins = playCoins;
     static int CalculationCoins(int countHorizontal, int countVertical, int coins)

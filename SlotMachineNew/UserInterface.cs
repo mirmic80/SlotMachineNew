@@ -30,5 +30,16 @@
             Console.WriteLine("PLAYOUT! You got " + winCoins + " Coins");
 
         }
+        public static void MeasageWinOrLose(int coinStart, int coinsPlay)
+        {
+            if (coinsPlay >= coinStart)
+            {
+                Console.WriteLine("You win + " + (coinsPlay - coinStart));
+            }
+            else
+            {
+                Console.WriteLine("You lose " + (coinsPlay - coinStart));
+            }
+        }
     }
 }
