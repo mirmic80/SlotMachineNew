@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SlotMachineNew
+﻿namespace SlotMachineNew
 {
     public static class UserInterface
     {
@@ -22,8 +16,7 @@ namespace SlotMachineNew
 
         public static void DisplayWelcomeScreen()
         {
-            Console.WriteLine("Welcome to the slotmachint");
+            Console.WriteLine("Press any key to start,(ESC) to exit/playout. You start with 30 Coins");
         }
-
     }
 }

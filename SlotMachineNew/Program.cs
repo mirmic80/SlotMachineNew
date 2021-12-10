@@ -2,65 +2,105 @@
 
 
 UserInterface.DisplayWelcomeScreen();
+bool playing = true;
+int startCoins = 30;
 
-int width = 3;
-int length = 3;
-
-
-int[][] randomNumbers = GenerateRandomNuumberGrid(width, length);
-int compareHorizontal = CompareGridNumberHorizontal(randomNumbers);
-int compareVertical = CompareGridNumberVertical(randomNumbers);
-
-UserInterface.DisplaySlotMachineState(randomNumbers); //displays nice grid
-
-static int CompareGridNumberHorizontal(int[][] gridNumber)
+while (playing)
 {
-    int comapreNumberHorizontal = 0;
-    for (int i = 0; i < gridNumber.Length; i++)
+    int width = 3;
+    int length = 3;
+    int[][] randomNumbers = GenerateRandomNuumberGrid(width, length);
+    int compareHorizontal = CompareGridNumberHorizontal(randomNumbers);
+    int compareVertical = CompareGridNumberVertical(randomNumbers);
+    int playCoins = CalculationCoins(compareHorizontal, compareVertical, startCoins);
+
+
+    ConsoleKeyInfo info = Console.ReadKey(true);
+    if (info.Key != ConsoleKey.Escape)
     {
-        for (int j = 0; j < gridNumber[i].Length; j++)
+        playing = true;
+    }
+
+    if (info.Key == ConsoleKey.Escape)
+    {
+        playing = false;
+        break;
+    }
+
+    Console.Clear();
+
+    UserInterface.DisplaySlotMachineState(randomNumbers); //displays nice grid
+
+    startCoins = playCoins;
+    static int CalculationCoins(int countHorizontal, int countVertical, int coins)
+    {
+        if (countHorizontal == 0 && countVertical == 0)
         {
-            if (gridNumber[i][j] == gridNumber[i][0])
+            coins = coins - 10;
+        }
+        else
+        {
+            if (countHorizontal >= 0)
             {
-                comapreNumberHorizontal++;
+                coins = countHorizontal + coins;
+            }
+            if (countVertical >= 0)
+            {
+                coins = countVertical + coins;
             }
         }
+        return coins;
     }
-    return comapreNumberHorizontal;
-}
 
-static int CompareGridNumberVertical(int[][] gridNumber)
-{
-    int comapreNumberVertical = 0;
-    for (int i = 0; i < gridNumber[0].Length; i++)
+    static int CompareGridNumberHorizontal(int[][] gridNumber)
     {
-        for (int j = 0; j < gridNumber.Length; j++)
+        int comapreNumberHorizontal = 0;
+        for (int i = 0; i < gridNumber.Length; i++)
         {
-            if (gridNumber[i][j] == gridNumber[i][0])
+            for (int j = 0; j < gridNumber[i].Length - 1; j++)
             {
-                comapreNumberVertical++;
+                if (gridNumber[i][j + 1] == gridNumber[i][0])
+                {
+                    comapreNumberHorizontal++;
+                }
             }
         }
+        return comapreNumberHorizontal;
     }
-    return comapreNumberVertical;
-}
 
-static int[][] GenerateRandomNuumberGrid(int rawDimension, int lenghtDimension)
-{
-    int[][] raw = new int[rawDimension][];
-
-    for (int i = 0; i < rawDimension; i++)
+    static int CompareGridNumberVertical(int[][] gridNumber)
     {
-        raw[i] = new int[lenghtDimension];
-    }
-    for (int i = 0; i < rawDimension; i++)
-    {
-        for (int j = 0; j < lenghtDimension; j++)
+        int comapreNumberVertical = 0;
+        for (int i = 0; i < gridNumber[0].Length; i++)
         {
-            Random rng = new Random();
-            int lucky = rng.Next(0, 3);
-            raw[i][j] = lucky;
+            for (int j = 0; j < gridNumber.Length - 1; j++)
+            {
+                if (gridNumber[i][j + 1] == gridNumber[i][0])
+                {
+                    comapreNumberVertical++;
+                }
+            }
         }
+        return comapreNumberVertical;
     }
-    return raw;
+
+    static int[][] GenerateRandomNuumberGrid(int rawDimension, int lenghtDimension)
+    {
+        int[][] raw = new int[rawDimension][];
+
+        for (int i = 0; i < rawDimension; i++)
+        {
+            raw[i] = new int[lenghtDimension];
+        }
+        for (int i = 0; i < rawDimension; i++)
+        {
+            for (int j = 0; j < lenghtDimension; j++)
+            {
+                Random rng = new Random();
+                int lucky = rng.Next(0, 6);
+                raw[i][j] = lucky;
+            }
+        }
+        return raw;
+    }
 }
