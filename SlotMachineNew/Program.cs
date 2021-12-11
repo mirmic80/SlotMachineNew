@@ -7,7 +7,7 @@ int startCoins = 30;
 
 while (playing)
 {
-    
+
     int width = 3;
     int length = 3;
     int[][] randomNumbers = GenerateRandomNuumberGrid(width, length);
@@ -33,7 +33,7 @@ while (playing)
         UserInterface.NoMoreCoins(playCoins);
         break;
     }
-            Console.Clear();
+    Console.Clear();
 
     UserInterface.NoMoreCoins(playCoins);
     UserInterface.CoinsLeft(playCoins);
@@ -81,11 +81,11 @@ while (playing)
     {
         int comapreNumberVertical = 0;
         for (int i = 0; i < gridNumber[0].Length; i++)
-        {
-            for (int j = 0; j < gridNumber.Length - 1; j++)
-            {
-                if (gridNumber[i][j + 1] == gridNumber[i][0])
-                {
+        {            
+            for (int j = 0; j < gridNumber.Length-1; j++)                
+            {                
+                if (gridNumber[j+1][i] == gridNumber[0][i])                    
+                {                    
                     comapreNumberVertical++;
                 }
             }
@@ -106,7 +106,7 @@ while (playing)
             for (int j = 0; j < lenghtDimension; j++)
             {
                 Random rng = new Random();
-                int lucky = rng.Next(0, 6);
+                int lucky = rng.Next(0, 9);
                 raw[i][j] = lucky;
             }
         }
