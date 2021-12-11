@@ -41,5 +41,10 @@
                 Console.WriteLine("You lose " + (coinsPlay - coinStart));
             }
         }
+        public static void NoMoreCoins(int loseCoins)
+        {
+            Console.Clear();
+            Console.WriteLine("You have lost " + loseCoins + " Coins");
+        }
     }
 }
