@@ -6,7 +6,7 @@
         {
             for (int i = 0; i < state.Length; i++)
             {
-                for (int j = 0; j < state.Length; j++)
+                for (int j = 0; j < state[i].Length; j++)
                 {
                     Console.Write(state[i][j]);
                 }
