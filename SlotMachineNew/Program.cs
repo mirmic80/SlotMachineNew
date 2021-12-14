@@ -9,7 +9,7 @@ while (playing)
 {
 
     int width = 3;
-    int length = 3;
+    int length =3;
     int[][] randomNumbers = GenerateRandomNuumberGrid(width, length);
     int compareHorizontal = CompareGridNumberHorizontal(randomNumbers);
     int compareVertical = CompareGridNumberVertical(randomNumbers);
