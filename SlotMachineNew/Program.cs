@@ -2,16 +2,17 @@
 UserInterface.DisplayWelcomeScreen();
 bool playing = true;
 int coins = 30;
+int width = 3;
+int length = 3;
+
 while (playing)
 {
 
-    int width = 3;
-    int length = 3;
- 
+
     int[][] randomNumbers = GenerateRandomNuumberGrid(width, length);
     int compareHorizontal = SetNumberHorizontal(randomNumbers);
     int compareVertical = SetNumberVertical(randomNumbers);
-    coins = coins + CalculationCoins(compareHorizontal, compareVertical); 
+    coins = coins + CalculationCoins(compareHorizontal, compareVertical);
     ConsoleKeyInfo info = Console.ReadKey(true);
     if (info.Key != ConsoleKey.Escape)
     {
