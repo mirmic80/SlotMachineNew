@@ -1,64 +1,46 @@
 ﻿using SlotMachineNew;
-
-
 UserInterface.DisplayWelcomeScreen();
 bool playing = true;
-int startCoins = 30;
-
+int coins = 30;
 while (playing)
 {
 
     int width = 3;
-    int length =3;
+    int length = 3;
+ 
     int[][] randomNumbers = GenerateRandomNuumberGrid(width, length);
     int compareHorizontal = CompareGridNumberHorizontal(randomNumbers);
     int compareVertical = CompareGridNumberVertical(randomNumbers);
-    int playCoins = CalculationCoins(compareHorizontal, compareVertical, startCoins);
-
+    coins = coins + CalculationCoins(compareHorizontal, compareVertical); 
     ConsoleKeyInfo info = Console.ReadKey(true);
     if (info.Key != ConsoleKey.Escape)
     {
         playing = true;
     }
-
     if (info.Key == ConsoleKey.Escape)
     {
         playing = false;
-        UserInterface.OutMeasage(playCoins);
+        UserInterface.OutMeasage(coins);
         break;
     }
-
-    if (playCoins <= 0)
+    if (coins <= 0)
     {
-        UserInterface.NoMoreCoins(playCoins);
+        UserInterface.NoMoreCoins(coins);
         break;
     }
     Console.Clear();
-
-    UserInterface.NoMoreCoins(playCoins);
-    UserInterface.CoinsLeft(playCoins);
+    UserInterface.NoMoreCoins(coins);
+    UserInterface.CoinsLeft(coins);
     UserInterface.DisplaySlotMachineState(randomNumbers); //displays nice grid
-    UserInterface.MeasageWinOrLose(startCoins, playCoins);
+    UserInterface.MeasageWinOrLose(coins, coins);
 
-    startCoins = playCoins;
-    static int CalculationCoins(int countHorizontal, int countVertical, int coins)
+    static int CalculationCoins(int countHorizontal, int countVertical)
     {
         if (countHorizontal == 0 && countVertical == 0)
-        {
-            coins = coins - 10;
-        }
-        else
-        {
-            if (countHorizontal >= 0)
-            {
-                coins = countHorizontal + coins;
-            }
-            if (countVertical >= 0)
-            {
-                coins = countVertical + coins;
-            }
-        }
-        return coins;
+            return -10;
+
+        return countHorizontal + countVertical;
+
     }
 
     static int CompareGridNumberHorizontal(int[][] gridNumber)
@@ -76,27 +58,24 @@ while (playing)
         }
         return comapreNumberHorizontal;
     }
-
     static int CompareGridNumberVertical(int[][] gridNumber)
     {
         int comapreNumberVertical = 0;
         for (int i = 0; i < gridNumber[0].Length; i++)
-        {            
-            for (int j = 0; j < gridNumber.Length-1; j++)                
-            {                
-                if (gridNumber[j+1][i] == gridNumber[0][i])                    
-                {                    
+        {
+            for (int j = 0; j < gridNumber.Length - 1; j++)
+            {
+                if (gridNumber[j + 1][i] == gridNumber[0][i])
+                {
                     comapreNumberVertical++;
                 }
             }
         }
         return comapreNumberVertical;
     }
-
     static int[][] GenerateRandomNuumberGrid(int rawDimension, int lenghtDimension)
     {
         int[][] raw = new int[rawDimension][];
-
         for (int i = 0; i < rawDimension; i++)
         {
             raw[i] = new int[lenghtDimension];

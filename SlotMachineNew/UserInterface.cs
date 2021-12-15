@@ -1,4 +1,5 @@
-﻿namespace SlotMachineNew
+﻿
+namespace SlotMachineNew
 {
     public static class UserInterface
     {
