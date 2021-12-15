@@ -1,13 +1,12 @@
 ﻿using SlotMachineNew;
 UserInterface.DisplayWelcomeScreen();
 bool playing = true;
-int coins = 30;
+int coins = 30; //always start with 30 coins
 int width = 3;
 int length = 3;
 
 while (playing)
-{
-    //UserInterface.ConsoleButon(playing);
+{    
     int[][] randomNumbers = GenerateRandomNuumberGrid(width, length);
     int compareHorizontal = SetNumberHorizontal(randomNumbers);
     int compareVertical = SetNumberVertical(randomNumbers);
@@ -53,38 +52,38 @@ static int CalculationCoins(int countHorizontal, int countVertical)
 }
 static int SetNumberHorizontal(int[][] gridNumber)
 {
-    int comapreNumberHorizontal = 0;
     int returnCoins = 0;
     for (int i = 0; i < gridNumber.Length; i++)
     {
+    int comapreNumberHorizontal = 0;
         for (int j = 0; j < gridNumber[i].Length - 1; j++)
-        {
-            if (gridNumber[i][j + 1] == gridNumber[i][0])
+        {            
+            if (gridNumber[i][0] == gridNumber[i][j + 1])
             {
                 comapreNumberHorizontal++;
             }
         }
-        if (comapreNumberHorizontal == gridNumber.Length - 1)
-            returnCoins = 5;
+        if (comapreNumberHorizontal == gridNumber[i].Length - 1)
+            returnCoins += 5;
     }
     return returnCoins;
 }
 static int SetNumberVertical(int[][] gridNumber)
 {
-    int comapreNumberVertical = 0;
     int returnCoins = 0;
     for (int i = 0; i < gridNumber[0].Length; i++)
     {
+    int comapreNumberVertical = 0;
         for (int j = 0; j < gridNumber.Length - 1; j++)
         {
-            if (gridNumber[j + 1][i] == gridNumber[0][i])
+            if (gridNumber[0][i] == gridNumber[j + 1][i])
             {
                 comapreNumberVertical++;
             }
         }
 
-        if (comapreNumberVertical == gridNumber[i].Length - 1)
-            returnCoins = 5;
+        if (comapreNumberVertical == gridNumber.Length - 1)
+            returnCoins += 5;
     }
     return returnCoins;
 
@@ -101,7 +100,7 @@ static int[][] GenerateRandomNuumberGrid(int rawDimension, int lenghtDimension)
         for (int j = 0; j < lenghtDimension; j++)
         {
             Random rng = new Random();
-            int lucky = rng.Next(0, 3);
+            int lucky = rng.Next(0, 5);
             raw[i][j] = lucky;
         }
     }
