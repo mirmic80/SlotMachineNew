@@ -1,5 +1,4 @@
-﻿
-namespace SlotMachineNew
+﻿namespace SlotMachineNew
 {
     public static class UserInterface
     {
@@ -19,8 +18,10 @@ namespace SlotMachineNew
         {
             Console.WriteLine("Press any key to start,(ESC) to exit/playout. You start with 30 Coins");
         }
+
         public static void CoinsLeft(int coins)
         {
+            Console.Clear();
             Console.WriteLine("**************");
             Console.WriteLine("Coins Left: " + coins);
             Console.WriteLine("**************");
@@ -31,21 +32,21 @@ namespace SlotMachineNew
             Console.WriteLine("PLAYOUT! You got " + winCoins + " Coins");
 
         }
-        public static void MeasageWinOrLose(int coinStart, int coinsPlay)
+        public static void MeasageWinOrLose(int winHorizontal, int winVertical)
         {
-            if (coinsPlay >= coinStart)
+            if (winHorizontal != 0 || winVertical != 0)
             {
-                Console.WriteLine("You win + " + (coinsPlay - coinStart));
+                Console.WriteLine("You win");
             }
             else
             {
-                Console.WriteLine("You lose " + (coinsPlay - coinStart));
+                Console.WriteLine("You lose");
             }
         }
-        public static void NoMoreCoins(int loseCoins)
+        public static void NoMoreCoins()
         {
             Console.Clear();
-            Console.WriteLine("You have lost " + loseCoins + " Coins");
+            Console.WriteLine("You have lost");
         }
     }
 }
