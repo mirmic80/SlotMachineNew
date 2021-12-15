@@ -9,8 +9,8 @@ while (playing)
     int length = 3;
  
     int[][] randomNumbers = GenerateRandomNuumberGrid(width, length);
-    int compareHorizontal = CompareGridNumberHorizontal(randomNumbers);
-    int compareVertical = CompareGridNumberVertical(randomNumbers);
+    int compareHorizontal = SetNumberHorizontal(randomNumbers);
+    int compareVertical = SetNumberVertical(randomNumbers);
     coins = coins + CalculationCoins(compareHorizontal, compareVertical); 
     ConsoleKeyInfo info = Console.ReadKey(true);
     if (info.Key != ConsoleKey.Escape)
@@ -43,9 +43,10 @@ while (playing)
 
     }
 
-    static int CompareGridNumberHorizontal(int[][] gridNumber)
+    static int SetNumberHorizontal(int[][] gridNumber)
     {
         int comapreNumberHorizontal = 0;
+        int returnCoins = 0;
         for (int i = 0; i < gridNumber.Length; i++)
         {
             for (int j = 0; j < gridNumber[i].Length - 1; j++)
@@ -55,12 +56,16 @@ while (playing)
                     comapreNumberHorizontal++;
                 }
             }
+            if (comapreNumberHorizontal == gridNumber.Length - 1)
+                returnCoins = 5;
         }
-        return comapreNumberHorizontal;
+        return returnCoins;
     }
-    static int CompareGridNumberVertical(int[][] gridNumber)
+
+    static int SetNumberVertical(int[][] gridNumber)
     {
         int comapreNumberVertical = 0;
+        int returnCoins = 0;
         for (int i = 0; i < gridNumber[0].Length; i++)
         {
             for (int j = 0; j < gridNumber.Length - 1; j++)
@@ -70,8 +75,12 @@ while (playing)
                     comapreNumberVertical++;
                 }
             }
+
+            if (comapreNumberVertical == gridNumber[i].Length - 1)
+                returnCoins = 5;
         }
-        return comapreNumberVertical;
+        return returnCoins;
+
     }
     static int[][] GenerateRandomNuumberGrid(int rawDimension, int lenghtDimension)
     {
