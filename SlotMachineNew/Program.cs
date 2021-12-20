@@ -16,7 +16,7 @@
                 int compareHorizontal = SetNumberHorizontal(randomNumbers);
                 int compareVertical = SetNumberVertical(randomNumbers);
                 coins = coins + CalculationCoins(compareHorizontal, compareVertical);
-                playing = ConsolInfo(playing);
+                playing = UserInterface.ConsoleInfo();
 
                 if (playing == false)
                 {
@@ -34,25 +34,6 @@
                 UserInterface.MeasageWinOrLose(compareHorizontal, compareVertical);
             }
 
-        }
-
-        /// <summary>
-        /// checks the keyboard input
-        /// </summary>
-        /// <param name="buttons">compares the keyboard input</param>
-        /// <returns>is the keyboard input correct</returns>
-        static bool ConsolInfo(bool buttons)
-        {
-            ConsoleKeyInfo info = Console.ReadKey(true);
-            if (info.Key != ConsoleKey.Escape)
-            {
-                buttons = true;
-            }
-            if (info.Key == ConsoleKey.Escape)
-            {
-                buttons = false;
-            }
-            return buttons;
         }
 
         /// <summary>

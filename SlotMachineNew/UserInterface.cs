@@ -74,5 +74,24 @@
             Console.Clear();
             Console.WriteLine("You have lost");
         }
+
+        /// <summary>
+        /// checks the keyboard input
+        /// </summary>
+        /// <returns>is the keyboard input correct then abort</returns>
+        public static bool ConsoleInfo()
+        {
+            bool run = false;
+            ConsoleKeyInfo info = Console.ReadKey(true);
+            if (info.Key != ConsoleKey.Escape)
+            {
+                run = true;
+            }
+            if (info.Key == ConsoleKey.Escape)
+            {
+                run = false;
+            }
+            return run;
+        }
     }
 }
